@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.Dimension;
 
 public class view extends JFrame{
 
@@ -14,8 +15,7 @@ public class view extends JFrame{
     public JTextPane textPaneLeft;
     private JButton button7;
     private JPanel panel;
-
-    int clickscore;
+    private JTextPane upgrades1Cost50TextPane;
 
     public JButton getButton1() {
         return button1;
@@ -55,20 +55,10 @@ public class view extends JFrame{
 
     public view() {
 
-        button7 = new JButton();
-        textPaneLeft = new JTextPane();
-        textPaneRight = new JTextPane();
     }
 
     public JPanel getPanel() {
         return panel;
     }
 
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("GUI");
-        frame.setContentPane(new view().panel);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-    }
 }

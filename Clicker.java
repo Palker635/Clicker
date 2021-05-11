@@ -4,12 +4,22 @@ import java.awt.event.ActionListener;
 
 public class Clicker {
 
+    /*
+    int clickscore;
+
+    public int getClickscore() {
+        return clickscore;
+    }
+     */
+
+    public static void main(String[] args) {
+
+    }
 
 
 
 
-
-
+/*
     public void updateScore(int i){
         scorevalue.setText("Score: " + i + scorevalue);
 
@@ -23,5 +33,7 @@ public class Clicker {
 
 
     }
+
+ */
 }
 
