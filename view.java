@@ -1,7 +1,4 @@
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.Dimension;
 
 public class view extends JFrame{
 
@@ -13,9 +10,9 @@ public class view extends JFrame{
     private JButton button3;
     public JTextPane textPaneRight;
     public JTextPane textPaneLeft;
-    private JButton button7;
+    private JButton clickbutton;
     private JPanel panel;
-    private JTextPane upgrades1Cost50TextPane;
+    private JTextPane UpgradePane;
 
     public JButton getButton1() {
         return button1;
@@ -49,8 +46,8 @@ public class view extends JFrame{
         return textPaneLeft;
     }
 
-    public JButton getButton7() {
-        return button7;
+    public JButton getClickbutton() {
+        return clickbutton;
     }
 
     public view() {
