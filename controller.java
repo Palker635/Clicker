@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.*;
+
 
 public class controller {
     view v;
@@ -23,6 +25,17 @@ public class controller {
     int upgrade4cb = 75;
     int upgrade5cb = 200;
     int upgrade6cb = 500;
+
+
+    public clickerdb() {
+        Connection conn = DriverManager.getConnection(
+                "jdbc:mysql://" + DatabaseLoginData.DBURL + ":" + DatabaseLoginData.port + "/" + DatabaseLoginData.DBname +
+                        "? allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC",
+                DatabaseLoginData.user, DatabaseLoginData.password);
+
+    }
+
+
 
 
     public controller() {
@@ -56,6 +69,7 @@ it deducts the upgrade cost from clickscore and increases the clickbonus accordi
                     clickscore = clickscore - upgrade1cost;
                     clickbonus = clickbonus + upgrade1cb;
                     v.getTextPaneRight().setText("Score: " + clickscore);
+                    v.getTextPaneLeft().setText("Current score per click: " + clickbonus);
                 }
             }
         });
@@ -71,6 +85,7 @@ it deducts the upgrade cost from clickscore and increases the clickbonus accordi
                     clickscore = clickscore - upgrade2cost;
                     clickbonus = clickbonus + upgrade2cb;
                     v.getTextPaneRight().setText("Score: " + clickscore);
+                    v.getTextPaneLeft().setText("Current score per click: " + clickbonus);
                 }
             }
         });
@@ -86,6 +101,7 @@ it deducts the upgrade cost from clickscore and increases the clickbonus accordi
                     clickscore = clickscore - upgrade3cost;
                     clickbonus = clickbonus + upgrade3cb;
                     v.getTextPaneRight().setText("Score: " + clickscore);
+                    v.getTextPaneLeft().setText("Current score per click: " + clickbonus);
                 }
             }
         });
@@ -101,6 +117,7 @@ it deducts the upgrade cost from clickscore and increases the clickbonus accordi
                     clickscore = clickscore - upgrade4cost;
                     clickbonus = clickbonus + upgrade4cb;
                     v.getTextPaneRight().setText("Score: " + clickscore);
+                    v.getTextPaneLeft().setText("Current score per click: " + clickbonus);
                 }
             }
         });
@@ -116,6 +133,7 @@ it deducts the upgrade cost from clickscore and increases the clickbonus accordi
                     clickscore = clickscore - upgrade5cost;
                     clickbonus = clickbonus + upgrade5cb;
                     v.getTextPaneRight().setText("Score: " + clickscore);
+                    v.getTextPaneLeft().setText("Current score per click: " + clickbonus);
                 }
             }
         });
@@ -131,6 +149,7 @@ it deducts the upgrade cost from clickscore and increases the clickbonus accordi
                     clickscore = clickscore - upgrade6cost;
                     clickbonus = clickbonus + upgrade6cb;
                     v.getTextPaneRight().setText("Score: " + clickscore);
+                    v.getTextPaneLeft().setText("Current score per click: " + clickbonus);
                 }
             }
         });
