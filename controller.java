@@ -6,6 +6,7 @@ import java.sql.*;
 
 
 public class controller {
+    String username;
     view v;
     int clickscore = 0;
     int clickbonus = 0;
@@ -27,19 +28,25 @@ public class controller {
     int upgrade6cb = 500;
 
 
-    public clickerdb() {
-        Connection conn = DriverManager.getConnection(
-                "jdbc:mysql://" + DatabaseLoginData.DBURL + ":" + DatabaseLoginData.port + "/" + DatabaseLoginData.DBname +
-                        "? allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC",
-                DatabaseLoginData.user, DatabaseLoginData.password);
+    public static void main(String[] args) {
+        controller c = new controller();
 
+        try {
+            // Set up connection to database
+            Connection conn = DriverManager.getConnection(
+                    "jdbc:mysql://" + DatabaseLoginData.DBURL + ":" + DatabaseLoginData.port + "/" + DatabaseLoginData.DBname +
+                            "? allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC",
+                    DatabaseLoginData.user, DatabaseLoginData.password);
+
+            // Setup statement
+            Statement stmt = conn.createStatement();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
     }
 
 
-
-
     public controller() {
-
         v = new view();
         JFrame frame = new JFrame("GUI");
         frame.setContentPane(v.getPanel());
@@ -47,6 +54,11 @@ public class controller {
         frame.setPreferredSize(new Dimension(700, 500));
         frame.pack();
         frame.setVisible(true);
+
+        username = JOptionPane.showInputDialog("What is your username?");
+        System.out.println(username);
+
+
 
 
 //Action listener for the "click button" that increases clickscore in proportion to how much clickbonus/upgrades the user has.
@@ -153,9 +165,5 @@ it deducts the upgrade cost from clickscore and increases the clickbonus accordi
                 }
             }
         });
-    }
-
-    public static void main(String[] args) {
-        controller c = new controller();
     }
 }
