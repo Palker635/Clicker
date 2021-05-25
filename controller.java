@@ -10,6 +10,7 @@ public class controller {
     view v;
     int clickscore = 0;
     int clickbonus = 0;
+    private clickerDB db;
 
     //Upgrade cost for upgrade number n
     int upgrade1cost = 50;
@@ -28,22 +29,19 @@ public class controller {
     int upgrade6cb = 500;
 
 
-    public static void main(String[] args) {
-        controller c = new controller();
-
-        try {
-            // Set up connection to database
-            Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://" + DatabaseLoginData.DBURL + ":" + DatabaseLoginData.port + "/" + DatabaseLoginData.DBname +
-                            "? allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC",
-                    DatabaseLoginData.user, DatabaseLoginData.password);
-
-            // Setup statement
-            Statement stmt = conn.createStatement();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
+    public String getUsername() {
+        return username;
     }
+
+    public int getClickscore() {
+        return clickscore;
+    }
+
+    public int getClickbonus() {
+        return clickbonus;
+    }
+
+
 
 
     public controller() {
@@ -54,11 +52,19 @@ public class controller {
         frame.setPreferredSize(new Dimension(700, 500));
         frame.pack();
         frame.setVisible(true);
+        this.db = new clickerDB();
 
         username = JOptionPane.showInputDialog("What is your username?");
         System.out.println(username);
 
 
+
+        v.getSavebutton().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                db.dbSave(clickscore, clickbonus, username);
+            }
+        });
 
 
 //Action listener for the "click button" that increases clickscore in proportion to how much clickbonus/upgrades the user has.

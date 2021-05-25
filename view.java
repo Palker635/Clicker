@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class view extends JFrame{
 
@@ -13,6 +15,7 @@ public class view extends JFrame{
     private JButton clickbutton;
     private JPanel panel;
     private JTextPane UpgradePane;
+    public JButton savebutton;
 
     public JButton getButton1() {
         return button1;
@@ -38,6 +41,10 @@ public class view extends JFrame{
         return button3;
     }
 
+    public JButton getSavebutton() {
+        return savebutton;
+    }
+
     public JTextPane getTextPaneRight() {
         return textPaneRight;
     }
@@ -50,12 +57,8 @@ public class view extends JFrame{
         return clickbutton;
     }
 
-    public view() {
-
-    }
 
     public JPanel getPanel() {
         return panel;
     }
-
 }
