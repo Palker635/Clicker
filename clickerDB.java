@@ -2,7 +2,7 @@ import java.sql.*;
 
 public class clickerDB {
 
-    public void dbSave(String username, int clickbonus, int score) throws SQLException{
+    public void dbSave(String username, int clickbonus, int clickscore) throws SQLException{
         Connection conn = null;
         Statement stmt;
 
@@ -13,7 +13,7 @@ public class clickerDB {
 
         stmt = conn.createStatement();
 
-        String save = INSERT INTO `clickersave` (`id`, `score`, `clickbonus`, `username`) VALUES ('2', '335', '7', 'bobee');
+        String save = "INSERT INTO clickersave (id, scoredb, clickbonusdb, usernamedb) VALUES (1, "+clickscore+" , "+clickbonus+" , "+username+")";
         stmt.executeUpdate(save);
 
     }

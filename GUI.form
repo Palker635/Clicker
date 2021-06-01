@@ -92,7 +92,7 @@
           <text value="Upgrades:&#10;1 - Cost: 50     Clickbonus: 1&#10;2 - Cost: 300    Clickbonus: 3&#10;3 - Cost: 1000   Clickbonus: 8&#10;4 - Cost: 2250   Clickbonus: 15&#10;5 - Cost: 3000   Clickbonus: 30&#10;6 - Cost: 10000  Clickbonus: 50"/>
         </properties>
       </component>
-      <component id="d3098" class="javax.swing.JButton" binding="savebutton" custom-create="true">
+      <component id="d3098" class="javax.swing.JButton" binding="savebutton">
         <constraints>
           <grid row="12" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
