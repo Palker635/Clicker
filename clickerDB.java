@@ -6,6 +6,7 @@ public class clickerDB {
         Connection conn = null;
         Statement stmt;
 
+
         conn = DriverManager.getConnection(
                 "jdbc:mysql://" + DatabaseLoginData.DBURL + ":" + DatabaseLoginData.port + "/" + DatabaseLoginData.DBname +
                         "? allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC",
@@ -13,7 +14,8 @@ public class clickerDB {
 
         stmt = conn.createStatement();
 
-        String save = "INSERT INTO clickersave (id, scoredb, clickbonusdb, usernamedb) VALUES (1, "+clickscore+" , "+clickbonus+" , "+username+")";
+        String save = "INSERT INTO clickersave (scoredb, clickbonusdb, usernamedb) VALUES ("+clickscore+" , "+clickbonus+" ,'"+username+"')";
+        System.out.println(save);
         stmt.executeUpdate(save);
 
     }

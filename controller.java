@@ -180,6 +180,6 @@ it deducts the upgrade cost from clickscore and increases the clickbonus accordi
         }
 
     public static void main(String[] args) {
-        controller c =new controller();
+        controller c = new controller();
     }
 }
